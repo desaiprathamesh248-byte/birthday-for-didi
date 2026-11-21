@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Didi 💗</title>
+<style>
+:root{--pink:#ff6fae;--purple:#9270ff;--ink:#49334f}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial, sans-serif;color:var(--ink);background:linear-gradient(135deg,#ffe1ed,#e9ddff,#fff0d8);overflow-x:hidden}
+#sky,.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#sky{z-index:0}
+.wrap{min-height:100vh;display:grid;place-items:center;padding:22px;position:relative;z-index:1}
+.card{width:min(700px,100%);min-height:540px;padding:clamp(22px,5vw,48px);border:1px solid #ffffffc9;border-radius:30px;background:#ffffffdf;backdrop-filter:blur(12px);box-shadow:0 22px 70px #744c7828;text-align:center;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:#ffd1e5;filter:blur(65px);opacity:.5;top:-130px;left:-90px;pointer-events:none}
+.progress{height:7px;background:#f4ddec;border-radius:20px;overflow:hidden;margin-bottom:28px}
+#bar{height:100%;width:10%;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width .5s ease}
+.page{display:none;position:relative;z-index:1;animation:pageIn .65s cubic-bezier(.2,.8,.2,1)}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.kicker{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:#a15a91;font-weight:bold}
+h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.08;margin:17px 0;color:#914b91}
+p{font-size:1.07rem;line-height:1.75;color:#66536a}
+.big{font-size:5rem;margin:18px 0;display:inline-block;animation:bob 2.3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(4deg)}}
+button{border:0;border-radius:999px;padding:14px 24px;font-size:1rem;font-weight:bold;cursor:pointer;transition:transform .2s,box-shadow .2s;touch-action:manipulation}
+button:hover{transform:translateY(-3px);box-shadow:0 10px 24px #9c6ac044}
+.primary{background:linear-gradient(120deg,#ff6fae,#9a70ff);color:white}
+.secondary,.no-btn{background:#f2e7f4;color:#79567e}
+.actions{display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:wrap;min-height:62px;margin-top:27px;position:relative}
+.no-btn{position:relative;z-index:3}
+.note{background:#fff3f9;border:1px dashed #e9a2c5;border-radius:20px;padding:18px;margin-top:20px;line-height:1.7}
+.counter{font-size:.82rem;color:#a17b9f;margin-top:25px}
+.heart{color:#f05a9c;display:inline-block;animation:heartbeat 1s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}}
+.float{position:absolute;bottom:-50px;font-size:22px;opacity:.65;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.confetti{position:fixed;top:-20px;width:9px;height:15px;border-radius:3px;z-index:10;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(760deg);opacity:.9}}
+.star{position:absolute;color:white;animation:twinkle 2s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1.3)}}
+.small{font-size:.88rem}
+@media(max-width:480px){.card{min-height:570px}.actions{gap:10px}button{padding:13px 19px}}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<main class="wrap">
+<section class="card">
+<div class="progress"><div id="bar"></div></div>
+
+<section class="page active">
+<div class="kicker">A little surprise for you</div><div class="big">🎁</div>
+<h1>Hey, Didi!</h1><p>I made something special just for you. Ready for a little birthday adventure?</p>
+<div class="actions"><button class="primary" onclick="go(1)">Let's start 💗</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 2 · A question</div><div class="big">🥳</div>
+<h1>Is today someone's special day?</h1><p>Someone lovely, caring, funny, and absolutely one of a kind?</p>
+<div class="actions"><button class="primary" onclick="go(2)">YES, obviously! 😎</button><button class="no-btn">NO 🙈</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 3 · Guess who?</div><div class="big">🎂</div>
+<h1>Is that special person YOU?</h1><p>Come on, Didi… you already know the answer!</p>
+<div class="actions"><button class="primary" onclick="go(3)">YES, it's me! 💃</button><button class="no-btn">NO 😅</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 4 · One tiny request</div><div class="big">💌</div>
+<h1>Will you accept my birthday wishes?</h1><p>They come with lots of love, warm hugs in words, and unlimited good vibes.</p>
+<div class="actions"><button class="primary" onclick="go(4)">YES! 💖</button><button class="no-btn">NO 🙊</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 5 · Are you sure?</div><div class="big">🥺</div>
+<h1>Are you really saying NO?</h1><p>That little NO button is shy… but these wishes are meant only for you!</p>
+<div class="actions"><button class="primary" onclick="go(5)">Okay, YES! 😂</button><button class="no-btn">NO 🏃‍♀️</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 6 · From my heart</div><div class="big">🌷</div>
+<h1>To my wonderful Didi</h1><p>Thank you for being someone I can look up to, laugh with, learn from, and count on. You make ordinary days brighter just by being you.</p>
+<div class="actions"><button class="primary" onclick="go(6)">Awww, continue 💗</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 7 · A wish for you</div><div class="big">✨</div>
+<h1>May your year sparkle!</h1><p>May you have good health, peaceful days, exciting opportunities, success in everything you do, and countless reasons to smile.</p>
+<div class="actions"><button class="primary" onclick="go(7)">Next surprise 🎀</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 8 · Never change</div><div class="big">🫶</div>
+<h1>Keep being amazing</h1><p>Keep being your strong, caring, funny, and wonderfully unique self. You deserve all the beautiful things life has to offer.</p>
+<div class="actions"><button class="primary" onclick="go(8)">One last thing…</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 9 · Make a wish</div><div class="big">🕯️🎂🕯️</div>
+<h1>Close your eyes and make a wish!</h1><p>May this new chapter bring you closer to every dream you are carrying in your heart.</p>
+<div class="actions"><button class="primary" onclick="go(9)">Wish made! 🌟</button></div>
+</section>
+
+<section class="page">
+<div class="kicker">Page 10 · The big surprise</div><div class="big">🎉💐🎂</div>
+<h1>HAPPY BIRTHDAY, DIDI!</h1><p>You are loved more than words can say. Thank you for being my Didi. Have the most beautiful birthday ever!</p>
+<div class="note"><strong>Lots and lots of love,</strong><br>From your little sibling <span class="heart">♥</span></div>
+<div class="actions"><button class="primary" onclick="restart()">Replay the surprise ↻</button></div>
+<p class="small">Made with love, just for you 💗</p>
+</section>
+<div class="counter" id="counter">Page 1 of 10</div>
+</section>
+</main>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+let current=0;
+
+function showPage(index){
+ current=index;
+ pages.forEach((page,i)=>page.classList.toggle('active',i===index));
+ bar.style.width=((index+1)*10)+'%';
+ counter.textContent=`Page ${index+1} of 10`;
+ if(index===9)celebrate();
+}
+function go(index){showPage(index)}
+function restart(){showPage(0)}
+
+function dodge(button){
+ const parent=button.parentElement;
+ const area=parent.getBoundingClientRect();
+ const btn=button.getBoundingClientRect();
+ const maxX=Math.max(0,area.width-btn.width);
+ const maxY=70;
+ button.style.position='absolute';
+ button.style.left=(Math.random()*maxX)+'px';
+ button.style.top=((Math.random()-.5)*maxY+5)+'px';
+ button.style.transform='rotate('+(Math.random()*24-12)+'deg)';
+}
+document.querySelectorAll('.no-btn').forEach(button=>{
+ button.addEventListener('pointerenter',()=>dodge(button));
+ button.addEventListener('pointerdown',event=>{event.preventDefault();dodge(button)});
+});
+
+function celebrate(){
+ for(let i=0;i<100;i++){
+  const bit=document.createElement('span');
+  bit.className='confetti';
+  bit.style.left=Math.random()*100+'vw';
+  bit.style.background=['#ff6fae','#9a70ff','#ffd166','#71d6c2','#ff9b70'][i%5];
+  bit.style.animationDuration=(2+Math.random()*3)+'s';
+  bit.style.animationDelay=Math.random()+'s';
+  document.body.appendChild(bit);
+  setTimeout(()=>bit.remove(),5500);
+ }
+}
+
+// Floating hearts and stars in the background
+const sky=document.getElementById('sky');
+for(let i=0;i<22;i++){
+ const item=document.createElement('span');
+ item.className='float';
+ item.textContent=['💗','✨','💕','🌸'][i%4];
+ item.style.left=Math.random()*100+'%';
+ item.style.animationDuration=(9+Math.random()*12)+'s';
+ item.style.animationDelay=(-Math.random()*15)+'s';
+ sky.appendChild(item);
+}
+for(let i=0;i<18;i++){
+ const star=document.createElement('span');
+ star.className='star';
+ star.textContent='✦';
+ star.style.left=Math.random()*100+'%';
+ star.style.top=Math.random()*100+'%';
+ star.style.animationDelay=Math.random()*2+'s';
+ sky.appendChild(star);
+}
+</script>
+</body>
+</html>
